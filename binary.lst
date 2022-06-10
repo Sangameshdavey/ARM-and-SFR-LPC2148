@@ -1,0 +1,74 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 area             ca,code,readonly
+    2 00000000         start
+    3 00000000 E3A00101        ldr              r0,=0x40000000 ;
+    4 00000004 E5903000        ldr              r3,[r0]     ;
+    5 00000008 E3A01000        mov              r1,#0       ;
+    6 0000000C         loop
+    7 0000000C E5B02004        ldr              r2,[r0,#4]! ;
+    8 00000010 E1520001        cmp              r2,r1       ;
+    9 00000014 BA000000        BLT              goto
+   10 00000018 E1A01002        mov              r1,r2       ;
+   11 0000001C         goto
+   12 0000001C E2533001        subs             r3,r3,#1    ;
+   13 00000020 1AFFFFF9        BNE              loop        ;
+   14 00000024 E5801008        str              r1,[r0,#8]
+   15 00000028 EAFFFFFE 
+                       l       B                l           ;
+   16 0000002C                 end                          ;
+Command Line: --debug --xref --apcs=interwork --depend=.\binary.d -o.\binary.o 
+-ID:\ARM\RV31\INC -ID:\ARM\CMSIS\Include -ID:\ARM\Inc\Philips --predefine="__EV
+AL SETA 1" --list=.\binary.lst binary.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ca 00000000
+
+Symbol: ca
+   Definitions
+      At line 1 in file binary.asm
+   Uses
+      None
+Comment: ca unused
+goto 0000001C
+
+Symbol: goto
+   Definitions
+      At line 11 in file binary.asm
+   Uses
+      At line 9 in file binary.asm
+Comment: goto used once
+l 00000028
+
+Symbol: l
+   Definitions
+      At line 15 in file binary.asm
+   Uses
+      At line 15 in file binary.asm
+Comment: l used once
+loop 0000000C
+
+Symbol: loop
+   Definitions
+      At line 6 in file binary.asm
+   Uses
+      At line 13 in file binary.asm
+Comment: loop used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 2 in file binary.asm
+   Uses
+      None
+Comment: start unused
+5 symbols
+336 symbols in table

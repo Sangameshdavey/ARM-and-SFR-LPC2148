@@ -1,0 +1,1 @@
+.\binary.o: binary.asm
